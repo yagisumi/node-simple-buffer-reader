@@ -41,6 +41,7 @@ describe("SimpleBufferReader", () => {
     const r = new SimpleBufferReader(buf)
     expect(r.getLimit()).toBeNull()
     expect(() => r.setLimit(-100)).toThrow(/setLimit/)
+    expect(() => r.setLimit(-100)).toThrow(RangeError)
     expect(r.setLimit(8)).toEqual(r)
     expect(r.resetLimit()).toEqual(r)
     expect(r.getLimit()).toBeNull()
