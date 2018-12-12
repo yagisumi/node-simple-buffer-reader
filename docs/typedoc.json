@@ -1,0 +1,1535 @@
+{
+	"id": 0,
+	"name": "@yagisumi/simple-buffer-reader",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "SimpleBufferReader",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Simple Buffer Reader"
+			},
+			"children": [
+				{
+					"id": 3,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {},
+					"signatures": [
+						{
+							"id": 4,
+							"name": "new SimpleBufferReader",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {},
+							"comment": {},
+							"parameters": [
+								{
+									"id": 5,
+									"name": "buf",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"shortText": "buffer to read"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ArrayBuffer"
+									}
+								},
+								{
+									"id": 6,
+									"name": "littleEndian",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"shortText": "littleEndian or not\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"defaultValue": "true"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "SimpleBufferReader",
+								"id": 1
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 9,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 2,
+					"name": "littleEndian",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 5,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 12,
+					"name": "getLimit",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 13,
+							"name": "getLimit",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get Limit."
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "null"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 60,
+							"character": 10
+						}
+					]
+				},
+				{
+					"id": 14,
+					"name": "getPos",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 15,
+							"name": "getPos",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Return the current reading position."
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 71,
+							"character": 8
+						}
+					]
+				},
+				{
+					"id": 35,
+					"name": "peekInt16",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 36,
+							"name": "peekInt16",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 195,
+							"character": 11
+						}
+					]
+				},
+				{
+					"id": 43,
+					"name": "peekInt16BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 44,
+							"name": "peekInt16BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 231,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 39,
+					"name": "peekInt16LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 40,
+							"name": "peekInt16LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 213,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 59,
+					"name": "peekInt32",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 60,
+							"name": "peekInt32",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 303,
+							"character": 11
+						}
+					]
+				},
+				{
+					"id": 67,
+					"name": "peekInt32BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 68,
+							"name": "peekInt32BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 339,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 63,
+					"name": "peekInt32LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 64,
+							"name": "peekInt32LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 321,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 27,
+					"name": "peekInt8",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 28,
+							"name": "peekInt8",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 159,
+							"character": 10
+						}
+					]
+				},
+				{
+					"id": 22,
+					"name": "peekString",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 23,
+							"name": "peekString",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Peek as ASCII character string without moving the reading position.",
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 24,
+									"name": "length",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Length to read"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 137,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 47,
+					"name": "peekUint16",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 48,
+							"name": "peekUint16",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 249,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 55,
+					"name": "peekUint16BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 56,
+							"name": "peekUint16BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 285,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 51,
+					"name": "peekUint16LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 52,
+							"name": "peekUint16LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 267,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 71,
+					"name": "peekUint32",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 72,
+							"name": "peekUint32",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 357,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 79,
+					"name": "peekUint32BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 80,
+							"name": "peekUint32BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 393,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 75,
+					"name": "peekUint32LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 76,
+							"name": "peekUint32LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 375,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 31,
+					"name": "peekUint8",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 32,
+							"name": "peekUint8",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 177,
+							"character": 11
+						}
+					]
+				},
+				{
+					"id": 33,
+					"name": "readInt16",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 34,
+							"name": "readInt16",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 185,
+							"character": 11
+						}
+					]
+				},
+				{
+					"id": 41,
+					"name": "readInt16BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 42,
+							"name": "readInt16BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 221,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 37,
+					"name": "readInt16LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 38,
+							"name": "readInt16LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 203,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 57,
+					"name": "readInt32",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 58,
+							"name": "readInt32",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 293,
+							"character": 11
+						}
+					]
+				},
+				{
+					"id": 65,
+					"name": "readInt32BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 66,
+							"name": "readInt32BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 329,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 61,
+					"name": "readInt32LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 62,
+							"name": "readInt32LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 311,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 25,
+					"name": "readInt8",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 26,
+							"name": "readInt8",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 149,
+							"character": 10
+						}
+					]
+				},
+				{
+					"id": 19,
+					"name": "readString",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 20,
+							"name": "readString",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Read as ASCII character string.",
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 21,
+									"name": "length",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Length to read"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 121,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 45,
+					"name": "readUint16",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 46,
+							"name": "readUint16",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 239,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 53,
+					"name": "readUint16BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 54,
+							"name": "readUint16BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 275,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 49,
+					"name": "readUint16LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 50,
+							"name": "readUint16LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 257,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 69,
+					"name": "readUint32",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 70,
+							"name": "readUint32",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 347,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 77,
+					"name": "readUint32BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 78,
+							"name": "readUint32BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 383,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 73,
+					"name": "readUint32LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 74,
+							"name": "readUint32LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 365,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 29,
+					"name": "readUint8",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 30,
+							"name": "readUint8",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 167,
+							"character": 11
+						}
+					]
+				},
+				{
+					"id": 10,
+					"name": "resetLimit",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 11,
+							"name": "resetLimit",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Reset Limit."
+							},
+							"type": {
+								"type": "unknown",
+								"name": "this"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 52,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 16,
+					"name": "seekPos",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 17,
+							"name": "seekPos",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Move the current reading position.",
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 18,
+									"name": "pos",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Position"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 80,
+							"character": 9
+						}
+					]
+				},
+				{
+					"id": 7,
+					"name": "setLimit",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 8,
+							"name": "setLimit",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Restrict position to read.",
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 9,
+									"name": "limit",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Limit"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "unknown",
+								"name": "this"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 35,
+							"character": 10
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						3
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						12,
+						14,
+						35,
+						43,
+						39,
+						59,
+						67,
+						63,
+						27,
+						22,
+						47,
+						55,
+						51,
+						71,
+						79,
+						75,
+						31,
+						33,
+						41,
+						37,
+						57,
+						65,
+						61,
+						25,
+						19,
+						45,
+						53,
+						49,
+						69,
+						77,
+						73,
+						29,
+						10,
+						16,
+						7
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "simple-buffer-reader.ts",
+					"line": 4,
+					"character": 31
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"kind": 128,
+			"children": [
+				1
+			]
+		}
+	]
+}
