@@ -16,12 +16,6 @@ describe("SimpleBufferReader", () => {
     expect(r).toBeInstanceOf(SimpleBufferReader)
   })
 
-  test("buf", () => {
-    const buf = new ArrayBuffer(8)
-    const r = new SimpleBufferReader(buf)
-    expect(r.buf).toBeInstanceOf(ArrayBuffer)
-  })
-
   test("littleEndian", () => {
     const r = new SimpleBufferReader(bin8.buffer)
     expect(r.littleEndian).toBe(true)
