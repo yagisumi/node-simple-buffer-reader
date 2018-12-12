@@ -67,6 +67,7 @@ export class SimpleBufferReader {
   /**
    * Move the current reading position.
    * @param pos Position
+   * @throws RangeError
    */
   seekPos(pos: number) {
     if (pos < 0 || this.buf.byteLength < pos) {
@@ -107,6 +108,7 @@ export class SimpleBufferReader {
   /**
    * Read as ASCII character string.
    * @param length Length to read
+   * @throws RangeError
    */
   readString(length: number) {
     this.checkPos(length, "readString")
@@ -122,6 +124,7 @@ export class SimpleBufferReader {
   /**
    * Peek as ASCII character string without moving the reading position.
    * @param length Length to read
+   * @throws RangeError
    */
   peekString(length: number) {
     this.checkPos(length, "peekString")
@@ -132,6 +135,9 @@ export class SimpleBufferReader {
     return String.fromCharCode(...ary)
   }
 
+  /**
+   * @throws RangeError
+   */
   readInt8() {
     this.checkPos(1, "readInt8")
     const r = this.view.getInt8(this.pos)
@@ -139,11 +145,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekInt8() {
     this.checkPos(1, "peekInt8")
     return this.view.getInt8(this.pos)
   }
 
+  /**
+   * @throws RangeError
+   */
   readUint8() {
     this.checkPos(1, "readUint8")
     const r = this.view.getUint8(this.pos)
@@ -151,11 +163,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekUint8() {
     this.checkPos(1, "peekUint8")
     return this.view.getUint8(this.pos)
   }
 
+  /**
+   * @throws RangeError
+   */
   readInt16() {
     this.checkPos(2, "readInt16")
     const r = this.view.getInt16(this.pos, this.littleEndian)
@@ -163,11 +181,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekInt16() {
     this.checkPos(2, "peekInt16")
     return this.view.getInt16(this.pos, this.littleEndian)
   }
 
+  /**
+   * @throws RangeError
+   */
   readInt16LE() {
     this.checkPos(2, "readInt16LE")
     const r = this.view.getInt16(this.pos, true)
@@ -175,11 +199,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekInt16LE() {
     this.checkPos(2, "peekInt16LE")
     return this.view.getInt16(this.pos, true)
   }
 
+  /**
+   * @throws RangeError
+   */
   readInt16BE() {
     this.checkPos(2, "readInt16BE")
     const r = this.view.getInt16(this.pos, false)
@@ -187,11 +217,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekInt16BE() {
     this.checkPos(2, "peekInt16BE")
     return this.view.getInt16(this.pos, false)
   }
 
+  /**
+   * @throws RangeError
+   */
   readUint16() {
     this.checkPos(2, "readUint16")
     const r = this.view.getUint16(this.pos, this.littleEndian)
@@ -199,11 +235,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekUint16() {
     this.checkPos(2, "peekUint16")
     return this.view.getUint16(this.pos, this.littleEndian)
   }
 
+  /**
+   * @throws RangeError
+   */
   readUint16LE() {
     this.checkPos(2, "readUint16LE")
     const r = this.view.getUint16(this.pos, true)
@@ -211,11 +253,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekUint16LE() {
     this.checkPos(2, "peekUint16LE")
     return this.view.getUint16(this.pos, true)
   }
 
+  /**
+   * @throws RangeError
+   */
   readUint16BE() {
     this.checkPos(2, "readUint16BE")
     const r = this.view.getUint16(this.pos, false)
@@ -223,11 +271,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekUint16BE() {
     this.checkPos(2, "peekUint16BE")
     return this.view.getUint16(this.pos, false)
   }
 
+  /**
+   * @throws RangeError
+   */
   readInt32() {
     this.checkPos(4, "readInt32")
     const r = this.view.getInt32(this.pos, this.littleEndian)
@@ -235,11 +289,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekInt32() {
     this.checkPos(4, "peekInt32")
     return this.view.getInt32(this.pos, this.littleEndian)
   }
 
+  /**
+   * @throws RangeError
+   */
   readInt32LE() {
     this.checkPos(4, "readInt32LE")
     const r = this.view.getInt32(this.pos, true)
@@ -247,11 +307,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekInt32LE() {
     this.checkPos(4, "peekInt32LE")
     return this.view.getInt32(this.pos, true)
   }
 
+  /**
+   * @throws RangeError
+   */
   readInt32BE() {
     this.checkPos(4, "readInt32BE")
     const r = this.view.getInt32(this.pos, false)
@@ -259,11 +325,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekInt32BE() {
     this.checkPos(4, "peekInt32BE")
     return this.view.getInt32(this.pos, false)
   }
 
+  /**
+   * @throws RangeError
+   */
   readUint32() {
     this.checkPos(4, "readUint32")
     const r = this.view.getUint32(this.pos, this.littleEndian)
@@ -271,11 +343,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekUint32() {
     this.checkPos(4, "peekUint32")
     return this.view.getUint32(this.pos, this.littleEndian)
   }
 
+  /**
+   * @throws RangeError
+   */
   readUint32LE() {
     this.checkPos(4, "readUint32LE")
     const r = this.view.getUint32(this.pos, true)
@@ -283,11 +361,17 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekUint32LE() {
     this.checkPos(4, "peekUint32LE")
     return this.view.getUint32(this.pos, true)
   }
 
+  /**
+   * @throws RangeError
+   */
   readUint32BE() {
     this.checkPos(4, "readUint32BE")
     const r = this.view.getUint32(this.pos, false)
@@ -295,6 +379,9 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * @throws RangeError
+   */
   peekUint32BE() {
     this.checkPos(4, "peekUint32BE")
     return this.view.getUint32(this.pos, false)
