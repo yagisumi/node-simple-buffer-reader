@@ -2,6 +2,9 @@
  * Simple Buffer Reader
  */
 export class SimpleBufferReader {
+  /**
+   * Whether the endian when endian is not specified is little endian
+   */
   littleEndian: boolean
   private readonly buf: ArrayBuffer
   private readonly view: DataView
@@ -11,7 +14,7 @@ export class SimpleBufferReader {
   /**
    *
    * @param buf buffer to read
-   * @param littleEndian littleEndian or not
+   * @param littleEndian Whether the endian when endian is not specified is little endian
    */
   constructor(buf: ArrayBuffer, littleEndian = true) {
     this.buf = buf
