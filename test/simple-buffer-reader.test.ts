@@ -23,11 +23,13 @@ describe("SimpleBufferReader", () => {
   })
 
   test("littleEndian", () => {
-    const buf = new ArrayBuffer(8)
-    const r = new SimpleBufferReader(buf)
+    const r = new SimpleBufferReader(bin8.buffer)
     expect(r.littleEndian).toBe(true)
+    expect(r.peekInt16()).toBe(0x0100)
+    r.littleEndian = false
+    expect(r.peekInt16()).toBe(0x0001)
 
-    const r2 = new SimpleBufferReader(buf, false)
+    const r2 = new SimpleBufferReader(bin8.buffer, false)
     expect(r2.littleEndian).toBe(false)
   })
 
