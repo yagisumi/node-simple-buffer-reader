@@ -3,7 +3,7 @@
  */
 export class SimpleBufferReader {
   /**
-   * Whether the endian when endian is not specified is little endian
+   * Whether the endian is little endian when endian is not specified.
    */
   littleEndian: boolean
   private readonly buf: ArrayBuffer
