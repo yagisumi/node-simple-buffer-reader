@@ -12,9 +12,16 @@ export class SimpleBufferReader {
   }
 
   setLimit(limit: number) {
-    if (limit >= 0) {
-      this.limit = limit
+    if (limit < 0 || this.buf.byteLength < limit) {
+      throw new RangeError(
+        `Position out of range of buffer. setLimit: ${{
+          limit: limit,
+          bufferLength: this.buf.byteLength,
+        }}`
+      )
     }
+
+    this.limit = limit
     return this
   }
 
@@ -23,30 +30,56 @@ export class SimpleBufferReader {
     return this
   }
 
-  checkPos(readByte: number, method: string) {
+  getLimit() {
+    if (this.limit >= 0) {
+      return this.limit
+    } else {
+      return null
+    }
+  }
+
+  getPos() {
+    return this.pos
+  }
+
+  seekPos(pos: number) {
+    if (pos < 0 || this.buf.byteLength < pos) {
+      throw new RangeError(
+        `Position out of range of buffer. seekPos: ${JSON.stringify({
+          pos: pos,
+          bufferLength: this.buf.byteLength,
+        })}`
+      )
+    }
+
+    this.pos = pos
+    return pos
+  }
+
+  private checkPos(readByte: number, method: string) {
     if (this.limit >= 0 && this.pos + readByte > this.limit) {
-      throw new Error(
-        `Position exceeds limit. ${method}: ${{
+      throw new RangeError(
+        `Position exceeds limit. ${method}: ${JSON.stringify({
           pos: this.pos,
           limit: this.limit,
           readByte: readByte,
-        }}`
+        })}`
       )
     }
 
     if (this.pos + readByte > this.buf.byteLength) {
-      throw new Error(
-        `Position exceeds buffer length. ${method}: ${{
+      throw new RangeError(
+        `Position exceeds buffer length. ${method}: ${JSON.stringify({
           pos: this.pos,
           bufferLength: this.buf.byteLength,
           readByte: readByte,
-        }}`
+        })}`
       )
     }
   }
 
   readString(length: number) {
-    this.checkPos(length, "getString")
+    this.checkPos(length, "readString")
     const ary: Array<number> = []
     for (let i = 0; i < length; i++) {
       ary.push(this.view.getUint8(this.pos + i))
@@ -66,19 +99,31 @@ export class SimpleBufferReader {
   }
 
   readInt8() {
-    this.checkPos(1, "getInt8")
+    this.checkPos(1, "readInt8")
     const r = this.view.getInt8(this.pos)
     this.pos += 1
     return r
   }
 
   peekInt8() {
-    this.checkPos(1, "getInt8")
+    this.checkPos(1, "peekInt8")
     return this.view.getInt8(this.pos)
   }
 
+  readUint8() {
+    this.checkPos(1, "readUint8")
+    const r = this.view.getUint8(this.pos)
+    this.pos += 1
+    return r
+  }
+
+  peekUint8() {
+    this.checkPos(1, "peekUint8")
+    return this.view.getUint8(this.pos)
+  }
+
   readInt16() {
-    this.checkPos(2, "getInt16")
+    this.checkPos(2, "readInt16")
     const r = this.view.getInt16(this.pos, this.littleEndian)
     this.pos += 2
     return r
@@ -90,19 +135,19 @@ export class SimpleBufferReader {
   }
 
   readInt16LE() {
-    this.checkPos(2, "getInt16LE")
-    const r = this.view.getInt16(this.pos)
+    this.checkPos(2, "readInt16LE")
+    const r = this.view.getInt16(this.pos, true)
     this.pos += 2
     return r
   }
 
   peekInt16LE() {
     this.checkPos(2, "peekInt16LE")
-    return this.view.getInt16(this.pos)
+    return this.view.getInt16(this.pos, true)
   }
 
   readInt16BE() {
-    this.checkPos(2, "getInt16BE")
+    this.checkPos(2, "readInt16BE")
     const r = this.view.getInt16(this.pos, false)
     this.pos += 2
     return r
@@ -113,8 +158,44 @@ export class SimpleBufferReader {
     return this.view.getInt16(this.pos, false)
   }
 
+  readUint16() {
+    this.checkPos(2, "readUint16")
+    const r = this.view.getUint16(this.pos, this.littleEndian)
+    this.pos += 2
+    return r
+  }
+
+  peekUint16() {
+    this.checkPos(2, "peekUint16")
+    return this.view.getUint16(this.pos, this.littleEndian)
+  }
+
+  readUint16LE() {
+    this.checkPos(2, "readUint16LE")
+    const r = this.view.getUint16(this.pos, true)
+    this.pos += 2
+    return r
+  }
+
+  peekUint16LE() {
+    this.checkPos(2, "peekUint16LE")
+    return this.view.getUint16(this.pos, true)
+  }
+
+  readUint16BE() {
+    this.checkPos(2, "readUint16BE")
+    const r = this.view.getUint16(this.pos, false)
+    this.pos += 2
+    return r
+  }
+
+  peekUint16BE() {
+    this.checkPos(2, "peekUint16BE")
+    return this.view.getUint16(this.pos, false)
+  }
+
   readInt32() {
-    this.checkPos(4, "getInt32")
+    this.checkPos(4, "readInt32")
     const r = this.view.getInt32(this.pos, this.littleEndian)
     this.pos += 4
     return r
@@ -126,19 +207,19 @@ export class SimpleBufferReader {
   }
 
   readInt32LE() {
-    this.checkPos(4, "getInt32LE")
-    const r = this.view.getInt32(this.pos)
+    this.checkPos(4, "readInt32LE")
+    const r = this.view.getInt32(this.pos, true)
     this.pos += 4
     return r
   }
 
   peekInt32LE() {
     this.checkPos(4, "peekInt32LE")
-    return this.view.getInt32(this.pos)
+    return this.view.getInt32(this.pos, true)
   }
 
   readInt32BE() {
-    this.checkPos(4, "getInt32BE")
+    this.checkPos(4, "readInt32BE")
     const r = this.view.getInt32(this.pos, false)
     this.pos += 4
     return r
@@ -147,5 +228,41 @@ export class SimpleBufferReader {
   peekInt32BE() {
     this.checkPos(4, "peekInt32BE")
     return this.view.getInt32(this.pos, false)
+  }
+
+  readUint32() {
+    this.checkPos(4, "readUint32")
+    const r = this.view.getUint32(this.pos, this.littleEndian)
+    this.pos += 4
+    return r
+  }
+
+  peekUint32() {
+    this.checkPos(4, "peekUint32")
+    return this.view.getUint32(this.pos, this.littleEndian)
+  }
+
+  readUint32LE() {
+    this.checkPos(4, "readUint32LE")
+    const r = this.view.getUint32(this.pos, true)
+    this.pos += 4
+    return r
+  }
+
+  peekUint32LE() {
+    this.checkPos(4, "peekUint32LE")
+    return this.view.getUint32(this.pos, true)
+  }
+
+  readUint32BE() {
+    this.checkPos(4, "readUint32BE")
+    const r = this.view.getUint32(this.pos, false)
+    this.pos += 4
+    return r
+  }
+
+  peekUint32BE() {
+    this.checkPos(4, "peekUint32BE")
+    return this.view.getUint32(this.pos, false)
   }
 }
