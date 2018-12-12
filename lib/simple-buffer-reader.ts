@@ -94,6 +94,17 @@ export class SimpleBufferReader {
     return pos
   }
 
+  /**
+   * Skip a specific length
+   * @param nByte skip length
+   * @throws RangeError
+   */
+  skip(nByte: number) {
+    this.checkPos(nByte, "readString")
+    this.pos += nByte
+    return this
+  }
+
   private checkPos(readByte: number, method: string) {
     if (this.limit >= 0 && this.pos + readByte > this.limit) {
       throw new RangeError(
