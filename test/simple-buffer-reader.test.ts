@@ -36,6 +36,14 @@ describe("SimpleBufferReader", () => {
     expect(() => r.seekPos(9)).toThrow(/seekPos/)
   })
 
+  test("skip()", () => {
+    const r = new SimpleBufferReader(bin8.buffer)
+    expect(r.readInt8()).toBe(0)
+    expect(r.skip(4)).toBeInstanceOf(SimpleBufferReader)
+    expect(r.readInt8()).toBe(5)
+    expect(() => r.skip(4)).toThrow(/skip/)
+  })
+
   test("limit", () => {
     const buf = new ArrayBuffer(8)
     const r = new SimpleBufferReader(buf)
