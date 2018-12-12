@@ -100,7 +100,7 @@ export class SimpleBufferReader {
    * @throws RangeError
    */
   skip(nByte: number) {
-    this.checkPos(nByte, "readString")
+    this.checkPos(nByte, "skip")
     this.pos += nByte
     return this
   }
