@@ -1,7 +1,7 @@
 {
   "name": "@yagisumi/simple-buffer-reader",
   "version": "0.1.0",
-  "description": "",
+  "description": "simple buffer reader",
   "keywords": [],
   "private": true,
   "main": "lib/simple-buffer-reader.js",
