@@ -19,6 +19,14 @@ export class SimpleBufferReader {
     this.littleEndian = littleEndian
   }
 
+  private stringify(obj: { [key: string]: number }) {
+    const ary = []
+    for (let key in obj) {
+      ary.push(`${key}: ${obj[key]}`)
+    }
+    return `{ ${ary.join(", ")} }`
+  }
+
   /**
    * Restrict position to read.
    * @param limit Limit
@@ -27,10 +35,10 @@ export class SimpleBufferReader {
   setLimit(limit: number) {
     if (limit < 0 || this.buf.byteLength < limit) {
       throw new RangeError(
-        `Position out of range of buffer. setLimit: ${{
+        `Position out of range of buffer. setLimit: ${this.stringify({
           limit: limit,
           bufferLength: this.buf.byteLength,
-        }}`
+        })}`
       )
     }
 
@@ -72,7 +80,7 @@ export class SimpleBufferReader {
   seekPos(pos: number) {
     if (pos < 0 || this.buf.byteLength < pos) {
       throw new RangeError(
-        `Position out of range of buffer. seekPos: ${JSON.stringify({
+        `Position out of range of buffer. seekPos: ${this.stringify({
           pos: pos,
           bufferLength: this.buf.byteLength,
         })}`
@@ -86,7 +94,7 @@ export class SimpleBufferReader {
   private checkPos(readByte: number, method: string) {
     if (this.limit >= 0 && this.pos + readByte > this.limit) {
       throw new RangeError(
-        `Position exceeds limit. ${method}: ${JSON.stringify({
+        `Position exceeds limit. ${method}: ${this.stringify({
           pos: this.pos,
           limit: this.limit,
           readByte: readByte,
@@ -96,7 +104,7 @@ export class SimpleBufferReader {
 
     if (this.pos + readByte > this.buf.byteLength) {
       throw new RangeError(
-        `Position exceeds buffer length. ${method}: ${JSON.stringify({
+        `Position exceeds buffer length. ${method}: ${this.stringify({
           pos: this.pos,
           bufferLength: this.buf.byteLength,
           readByte: readByte,
