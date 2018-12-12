@@ -2,9 +2,9 @@
  * Simple Buffer Reader
  */
 export class SimpleBufferReader {
-  readonly buf: ArrayBuffer
-  readonly view: DataView
   littleEndian: boolean
+  private readonly buf: ArrayBuffer
+  private readonly view: DataView
   private pos = 0
   private limit = -1
 
