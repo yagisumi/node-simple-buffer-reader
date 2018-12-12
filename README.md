@@ -21,8 +21,8 @@ const SimpleBufferReader = require('@yagisumi/simple-buffer-reader').SimpleBuffe
 const binary = Uint8Array.of(0, 1, 2, 3, 4, 5, 6, 7);
 const reader = new SimpleBufferReader(binary.buffer);
 try {
-  console.log(reader.readInt32());
-  console.log(reader.readInt32());
+  console.log(reader.readInt32().toString(16));
+  console.log(reader.readInt32().toString(16));
 } catch(err) {
   throw err;
 }
