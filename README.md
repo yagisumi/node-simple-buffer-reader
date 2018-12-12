@@ -16,17 +16,24 @@ $ npm i @yagisumi/simple-buffer-reader
 - javascript
 
 ```js
-const XXXXXXXXX = require('@yagisumi/simple-buffer-reader').simple-buffer-reader;
+const SimpleBufferReader = require('@yagisumi/simple-buffer-reader').SimpleBufferReader;
 
-XXXXXXXXX();
+const binary = Uint8Array.of(0, 1, 2, 3, 4, 5, 6, 7);
+const reader = new SimpleBufferReader(binary.buffer);
+try {
+  console.log(reader.readInt32())
+  console.log(reader.readInt32())
+} catch(err) {
+  throw err
+}
 ```
 
 - typescript
 
 ```ts
-import { @yagisumi/simple-buffer-reader } from '@yagisumi/simple-buffer-reader';
+import { SimpleBufferReader } from '@yagisumi/simple-buffer-reader';
 
-XXXXXXXXX();
+// ....
 ```
 
 ## Reference
