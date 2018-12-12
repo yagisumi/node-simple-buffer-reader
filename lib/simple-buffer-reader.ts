@@ -1,3 +1,6 @@
+/**
+ * Simple Buffer Reader
+ */
 export class SimpleBufferReader {
   readonly buf: ArrayBuffer
   readonly view: DataView
@@ -5,12 +8,22 @@ export class SimpleBufferReader {
   private pos = 0
   private limit = -1
 
+  /**
+   *
+   * @param buf buffer to read
+   * @param littleEndian littleEndian or not
+   */
   constructor(buf: ArrayBuffer, littleEndian = true) {
     this.buf = buf
     this.view = new DataView(buf)
     this.littleEndian = littleEndian
   }
 
+  /**
+   * Restrict position to read.
+   * @param limit Limit
+   * @throws RangeError
+   */
   setLimit(limit: number) {
     if (limit < 0 || this.buf.byteLength < limit) {
       throw new RangeError(
@@ -25,11 +38,17 @@ export class SimpleBufferReader {
     return this
   }
 
+  /**
+   * Reset Limit.
+   */
   resetLimit() {
     this.limit = -1
     return this
   }
 
+  /**
+   * Get Limit.
+   */
   getLimit() {
     if (this.limit >= 0) {
       return this.limit
@@ -38,10 +57,17 @@ export class SimpleBufferReader {
     }
   }
 
+  /**
+   * Return the current reading position.
+   */
   getPos() {
     return this.pos
   }
 
+  /**
+   * Move the current reading position.
+   * @param pos Position
+   */
   seekPos(pos: number) {
     if (pos < 0 || this.buf.byteLength < pos) {
       throw new RangeError(
@@ -78,6 +104,10 @@ export class SimpleBufferReader {
     }
   }
 
+  /**
+   * Read as ASCII character string.
+   * @param length Length to read
+   */
   readString(length: number) {
     this.checkPos(length, "readString")
     const ary: Array<number> = []
@@ -89,6 +119,10 @@ export class SimpleBufferReader {
     return r
   }
 
+  /**
+   * Peek as ASCII character string without moving the reading position.
+   * @param length Length to read
+   */
   peekString(length: number) {
     this.checkPos(length, "peekString")
     const ary: Array<number> = []
