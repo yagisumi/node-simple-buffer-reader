@@ -14,6 +14,7 @@ $ npm i @yagisumi/simple-buffer-reader
 ## Usage
 
 - javascript
+
 ```js
 const XXXXXXXXX = require('@yagisumi/simple-buffer-reader').simple-buffer-reader;
 
@@ -21,6 +22,7 @@ XXXXXXXXX();
 ```
 
 - typescript
+
 ```ts
 import { @yagisumi/simple-buffer-reader } from '@yagisumi/simple-buffer-reader';
 
