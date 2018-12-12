@@ -19,10 +19,13 @@ $ npm i @yagisumi/simple-buffer-reader
 const SimpleBufferReader = require('@yagisumi/simple-buffer-reader').SimpleBufferReader;
 
 const binary = Uint8Array.of(0, 1, 2, 3, 4, 5, 6, 7);
-const reader = new SimpleBufferReader(binary.buffer);
+const reader = new SimpleBufferReader(binary.buffer, true);
 try {
-  console.log(reader.readInt32().toString(16));
-  console.log(reader.readInt32().toString(16));
+  console.log(reader.littleEndian); // true
+  reader.setLimit(4)
+  console.log(reader.readInt32().toString(16)); // "3020100"
+  // read over limit
+  console.log(reader.readInt32().toString(16)); // throw RangeError
 } catch(err) {
   throw err;
 }
