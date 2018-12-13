@@ -87,9 +87,7 @@ describe("SimpleBufferReader", () => {
     expect(() => (r[readName] as () => number)()).toThrow(new RegExp(readName))
   }
 
-  type ArgumentsType<T> = T extends (...args: infer U) => any ? U : never
-
-  const table: Array<[string, ArgumentsType<typeof testPeekAndReed>]> = [
+  const table: Array<[string, Parameters<typeof testPeekAndReed>]> = [
     // int8
     ["int8 +", [bin8, true, [0, 1, 2, 3, 4, 5, 6, 7], "peekInt8", "readInt8"]],
     ["int8 -", [bin8ff, true, [-1, -1, -1, -1, -1, -1, -1, -1], "peekInt8", "readInt8"]],
