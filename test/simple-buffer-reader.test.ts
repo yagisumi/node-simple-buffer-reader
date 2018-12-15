@@ -70,12 +70,12 @@ describe("SimpleBufferReader", () => {
     expect(() => r.readString(4)).toThrow(/readString/)
   })
 
-  function testPeekAndReed(
+  function testPeekAndRead(
     bin: Uint8Array,
     littleEndian: boolean,
     nums: Array<number>,
-    peekName: keyof SimpleBufferReader,
-    readName: keyof SimpleBufferReader
+    peekName: keyof Record<keyof SimpleBufferReader, (() => number)>,
+    readName: keyof Record<keyof SimpleBufferReader, (() => number)>
   ) {
     const r = new SimpleBufferReader(bin.buffer, littleEndian)
 
@@ -87,7 +87,7 @@ describe("SimpleBufferReader", () => {
     expect(() => (r[readName] as () => number)()).toThrow(new RegExp(readName))
   }
 
-  const table: Array<[string, Parameters<typeof testPeekAndReed>]> = [
+  const table: Array<[string, Parameters<typeof testPeekAndRead>]> = [
     // int8
     ["int8 +", [bin8, true, [0, 1, 2, 3, 4, 5, 6, 7], "peekInt8", "readInt8"]],
     ["int8 -", [bin8ff, true, [-1, -1, -1, -1, -1, -1, -1, -1], "peekInt8", "readInt8"]],
@@ -138,7 +138,7 @@ describe("SimpleBufferReader", () => {
 
   for (const args of table) {
     test(args[0], () => {
-      testPeekAndReed(...args[1])
+      testPeekAndRead(...args[1])
     })
   }
 })
