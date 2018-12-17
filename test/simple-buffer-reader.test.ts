@@ -59,7 +59,7 @@ describe("SimpleBufferReader", () => {
     expect(() => r.readInt32()).toThrow(/readInt32/)
   })
 
-  test("reedString(), peekString()", () => {
+  test("readString(), peekString()", () => {
     const ary = Uint8Array.of(0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48)
     const r = new SimpleBufferReader(ary.buffer)
     expect(r.peekString(4)).toBe("ABCD")
@@ -68,6 +68,27 @@ describe("SimpleBufferReader", () => {
     expect(r.readString(4)).toBe("EFGH")
     expect(() => r.peekString(4)).toThrow(/peekString/)
     expect(() => r.readString(4)).toThrow(/readString/)
+  })
+
+  test("readBuffer(), peekBuffer()", () => {
+    const r = new SimpleBufferReader(bin8.buffer)
+
+    const buf1 = r.peekBuffer(4)
+    expect(buf1.byteLength).toBe(4)
+    expect(r.getPos()).toBe(0)
+    const view1 = new DataView(buf1)
+    expect(view1.getInt32(0, true)).toBe(0x03020100)
+
+    const buf2 = r.readBuffer(4)
+    expect(buf2.byteLength).toBe(4)
+    expect(r.getPos()).toBe(4)
+    const view2 = new DataView(buf2)
+    expect(view2.getInt32(0, true)).toBe(0x03020100)
+
+    r.readBuffer(4)
+    expect(r.getPos()).toBe(8)
+    expect(() => r.peekBuffer(4)).toThrow(/peekBuffer/)
+    expect(() => r.readBuffer(4)).toThrow(/readBuffer/)
   })
 
   function testPeekAndRead(
