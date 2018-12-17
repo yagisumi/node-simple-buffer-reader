@@ -158,6 +158,28 @@ export class SimpleBufferReader {
   }
 
   /**
+   * Slice buffer.
+   * @param length Length to read
+   * @throws RangeError
+   */
+  readBuffer(length: number) {
+    this.checkPos(length, "readBuffer")
+    const r = this.buf.slice(this.pos, this.pos + length)
+    this.pos += length
+    return r
+  }
+
+  /**
+   * Slice buffer without moving the reading position.
+   * @param length Length to read
+   * @throws RangeError
+   */
+  peekBuffer(length: number) {
+    this.checkPos(length, "peekBuffer")
+    return this.buf.slice(this.pos, this.pos + length)
+  }
+
+  /**
    * @throws RangeError
    */
   readInt8() {
