@@ -80,10 +80,10 @@ export class SimpleBufferReader {
    * @param pos Position
    * @throws RangeError
    */
-  seekPos(pos: number) {
+  seek(pos: number) {
     if (pos < 0 || this.buf.byteLength < pos) {
       throw new RangeError(
-        `Position out of range of buffer. seekPos: ${this.stringify({
+        `Position out of range of buffer. seek: ${this.stringify({
           pos: pos,
           bufferLength: this.buf.byteLength,
         })}`
@@ -100,26 +100,26 @@ export class SimpleBufferReader {
    * @throws RangeError
    */
   skip(nByte: number) {
-    this.checkPos(nByte, "skip")
+    this.checkPos(this.pos, nByte, "skip")
     this.pos += nByte
     return this
   }
 
-  private checkPos(readByte: number, method: string) {
-    if (this.limit >= 0 && this.pos + readByte > this.limit) {
+  private checkPos(pos: number, readByte: number, method: string) {
+    if (this.limit >= 0 && pos + readByte > this.limit) {
       throw new RangeError(
         `Position exceeds limit. ${method}: ${this.stringify({
-          pos: this.pos,
+          pos: pos,
           limit: this.limit,
           readByte: readByte,
         })}`
       )
     }
 
-    if (this.pos + readByte > this.buf.byteLength) {
+    if (pos + readByte > this.buf.byteLength) {
       throw new RangeError(
         `Position exceeds buffer length. ${method}: ${this.stringify({
-          pos: this.pos,
+          pos: pos,
           bufferLength: this.buf.byteLength,
           readByte: readByte,
         })}`
@@ -133,7 +133,7 @@ export class SimpleBufferReader {
    * @throws RangeError
    */
   readString(length: number) {
-    this.checkPos(length, "readString")
+    this.checkPos(this.pos, length, "readString")
     const ary: Array<number> = []
     for (let i = 0; i < length; i++) {
       ary.push(this.view.getUint8(this.pos + i))
@@ -146,13 +146,15 @@ export class SimpleBufferReader {
   /**
    * Peek as ASCII character string without moving the reading position.
    * @param length Length to read
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekString(length: number) {
-    this.checkPos(length, "peekString")
+  peekString(length: number, pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, length, "peekString")
     const ary: Array<number> = []
     for (let i = 0; i < length; i++) {
-      ary.push(this.view.getUint8(this.pos + i))
+      ary.push(this.view.getUint8(r_pos + i))
     }
     return String.fromCharCode(...ary)
   }
@@ -163,7 +165,7 @@ export class SimpleBufferReader {
    * @throws RangeError
    */
   readBuffer(length: number) {
-    this.checkPos(length, "readBuffer")
+    this.checkPos(this.pos, length, "readBuffer")
     const r = this.buf.slice(this.pos, this.pos + length)
     this.pos += length
     return r
@@ -172,262 +174,292 @@ export class SimpleBufferReader {
   /**
    * Slice buffer without moving the reading position.
    * @param length Length to read
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekBuffer(length: number) {
-    this.checkPos(length, "peekBuffer")
-    return this.buf.slice(this.pos, this.pos + length)
+  peekBuffer(length: number, pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, length, "peekBuffer")
+    return this.buf.slice(r_pos, r_pos + length)
   }
 
   /**
    * @throws RangeError
    */
   readInt8() {
-    this.checkPos(1, "readInt8")
+    this.checkPos(this.pos, 1, "readInt8")
     const r = this.view.getInt8(this.pos)
     this.pos += 1
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekInt8() {
-    this.checkPos(1, "peekInt8")
-    return this.view.getInt8(this.pos)
+  peekInt8(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 1, "peekInt8")
+    return this.view.getInt8(r_pos)
   }
 
   /**
    * @throws RangeError
    */
   readUint8() {
-    this.checkPos(1, "readUint8")
+    this.checkPos(this.pos, 1, "readUint8")
     const r = this.view.getUint8(this.pos)
     this.pos += 1
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekUint8() {
-    this.checkPos(1, "peekUint8")
-    return this.view.getUint8(this.pos)
+  peekUint8(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 1, "peekUint8")
+    return this.view.getUint8(r_pos)
   }
 
   /**
    * @throws RangeError
    */
   readInt16() {
-    this.checkPos(2, "readInt16")
+    this.checkPos(this.pos, 2, "readInt16")
     const r = this.view.getInt16(this.pos, this.littleEndian)
     this.pos += 2
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekInt16() {
-    this.checkPos(2, "peekInt16")
-    return this.view.getInt16(this.pos, this.littleEndian)
+  peekInt16(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 2, "peekInt16")
+    return this.view.getInt16(r_pos, this.littleEndian)
   }
 
   /**
    * @throws RangeError
    */
   readInt16LE() {
-    this.checkPos(2, "readInt16LE")
+    this.checkPos(this.pos, 2, "readInt16LE")
     const r = this.view.getInt16(this.pos, true)
     this.pos += 2
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekInt16LE() {
-    this.checkPos(2, "peekInt16LE")
-    return this.view.getInt16(this.pos, true)
+  peekInt16LE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 2, "peekInt16LE")
+    return this.view.getInt16(r_pos, true)
   }
 
   /**
    * @throws RangeError
    */
   readInt16BE() {
-    this.checkPos(2, "readInt16BE")
+    this.checkPos(this.pos, 2, "readInt16BE")
     const r = this.view.getInt16(this.pos, false)
     this.pos += 2
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekInt16BE() {
-    this.checkPos(2, "peekInt16BE")
-    return this.view.getInt16(this.pos, false)
+  peekInt16BE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 2, "peekInt16BE")
+    return this.view.getInt16(r_pos, false)
   }
 
   /**
    * @throws RangeError
    */
   readUint16() {
-    this.checkPos(2, "readUint16")
+    this.checkPos(this.pos, 2, "readUint16")
     const r = this.view.getUint16(this.pos, this.littleEndian)
     this.pos += 2
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekUint16() {
-    this.checkPos(2, "peekUint16")
-    return this.view.getUint16(this.pos, this.littleEndian)
+  peekUint16(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 2, "peekUint16")
+    return this.view.getUint16(r_pos, this.littleEndian)
   }
 
   /**
    * @throws RangeError
    */
   readUint16LE() {
-    this.checkPos(2, "readUint16LE")
+    this.checkPos(this.pos, 2, "readUint16LE")
     const r = this.view.getUint16(this.pos, true)
     this.pos += 2
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekUint16LE() {
-    this.checkPos(2, "peekUint16LE")
-    return this.view.getUint16(this.pos, true)
+  peekUint16LE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 2, "peekUint16LE")
+    return this.view.getUint16(r_pos, true)
   }
 
   /**
    * @throws RangeError
    */
   readUint16BE() {
-    this.checkPos(2, "readUint16BE")
+    this.checkPos(this.pos, 2, "readUint16BE")
     const r = this.view.getUint16(this.pos, false)
     this.pos += 2
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekUint16BE() {
-    this.checkPos(2, "peekUint16BE")
-    return this.view.getUint16(this.pos, false)
+  peekUint16BE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 2, "peekUint16BE")
+    return this.view.getUint16(r_pos, false)
   }
 
   /**
    * @throws RangeError
    */
   readInt32() {
-    this.checkPos(4, "readInt32")
+    this.checkPos(this.pos, 4, "readInt32")
     const r = this.view.getInt32(this.pos, this.littleEndian)
     this.pos += 4
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekInt32() {
-    this.checkPos(4, "peekInt32")
-    return this.view.getInt32(this.pos, this.littleEndian)
+  peekInt32(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekInt32")
+    return this.view.getInt32(r_pos, this.littleEndian)
   }
 
   /**
    * @throws RangeError
    */
   readInt32LE() {
-    this.checkPos(4, "readInt32LE")
+    this.checkPos(this.pos, 4, "readInt32LE")
     const r = this.view.getInt32(this.pos, true)
     this.pos += 4
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekInt32LE() {
-    this.checkPos(4, "peekInt32LE")
-    return this.view.getInt32(this.pos, true)
+  peekInt32LE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekInt32LE")
+    return this.view.getInt32(r_pos, true)
   }
 
   /**
    * @throws RangeError
    */
   readInt32BE() {
-    this.checkPos(4, "readInt32BE")
+    this.checkPos(this.pos, 4, "readInt32BE")
     const r = this.view.getInt32(this.pos, false)
     this.pos += 4
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekInt32BE() {
-    this.checkPos(4, "peekInt32BE")
-    return this.view.getInt32(this.pos, false)
+  peekInt32BE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekInt32BE")
+    return this.view.getInt32(r_pos, false)
   }
 
   /**
    * @throws RangeError
    */
   readUint32() {
-    this.checkPos(4, "readUint32")
+    this.checkPos(this.pos, 4, "readUint32")
     const r = this.view.getUint32(this.pos, this.littleEndian)
     this.pos += 4
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekUint32() {
-    this.checkPos(4, "peekUint32")
-    return this.view.getUint32(this.pos, this.littleEndian)
+  peekUint32(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekUint32")
+    return this.view.getUint32(r_pos, this.littleEndian)
   }
 
   /**
    * @throws RangeError
    */
   readUint32LE() {
-    this.checkPos(4, "readUint32LE")
+    this.checkPos(this.pos, 4, "readUint32LE")
     const r = this.view.getUint32(this.pos, true)
     this.pos += 4
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekUint32LE() {
-    this.checkPos(4, "peekUint32LE")
-    return this.view.getUint32(this.pos, true)
+  peekUint32LE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekUint32LE")
+    return this.view.getUint32(r_pos, true)
   }
 
   /**
    * @throws RangeError
    */
   readUint32BE() {
-    this.checkPos(4, "readUint32BE")
+    this.checkPos(this.pos, 4, "readUint32BE")
     const r = this.view.getUint32(this.pos, false)
     this.pos += 4
     return r
   }
 
   /**
+   * @param pos Read start position
    * @throws RangeError
    */
-  peekUint32BE() {
-    this.checkPos(4, "peekUint32BE")
-    return this.view.getUint32(this.pos, false)
+  peekUint32BE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekUint32BE")
+    return this.view.getUint32(r_pos, false)
   }
 }

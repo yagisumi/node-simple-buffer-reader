@@ -31,10 +31,10 @@ describe("SimpleBufferReader", () => {
     const buf = new ArrayBuffer(8)
     const r = new SimpleBufferReader(buf)
     expect(r.getPos()).toBe(0)
-    expect(r.seekPos(1)).toBeInstanceOf(SimpleBufferReader)
+    expect(r.seek(1)).toBeInstanceOf(SimpleBufferReader)
     expect(r.getPos()).toBe(1)
-    expect(() => r.seekPos(buf.byteLength)).not.toThrow()
-    expect(() => r.seekPos(9)).toThrow(/seekPos/)
+    expect(() => r.seek(buf.byteLength)).not.toThrow()
+    expect(() => r.seek(9)).toThrow(/seek/)
   })
 
   test("skip()", () => {
@@ -56,7 +56,7 @@ describe("SimpleBufferReader", () => {
     expect(r.getLimit()).toBeNull()
     expect(r.setLimit(4)).toEqual(r)
     expect(r.getLimit()).toBe(4)
-    r.seekPos(2)
+    r.seek(2)
     expect(() => r.readInt32()).toThrow(/readInt32/)
   })
 
@@ -67,8 +67,11 @@ describe("SimpleBufferReader", () => {
     expect(r.readString(4)).toBe("ABCD")
     expect(r.peekString(4)).toBe("EFGH")
     expect(r.readString(4)).toBe("EFGH")
+    expect(r.getPos()).toBe(8)
     expect(() => r.peekString(4)).toThrow(/peekString/)
     expect(() => r.readString(4)).toThrow(/readString/)
+    expect(r.peekString(4, 0)).toBe("ABCD")
+    expect(r.getPos()).toBe(8)
   })
 
   test("readBuffer(), peekBuffer()", () => {
@@ -90,14 +93,20 @@ describe("SimpleBufferReader", () => {
     expect(r.getPos()).toBe(8)
     expect(() => r.peekBuffer(4)).toThrow(/peekBuffer/)
     expect(() => r.readBuffer(4)).toThrow(/readBuffer/)
+
+    const buf3 = r.peekBuffer(4, 0)
+    expect(buf3.byteLength).toBe(4)
+    const view3 = new DataView(buf3)
+    expect(view1.getInt32(0, true)).toBe(0x03020100)
+    expect(r.getPos()).toBe(8)
   })
 
   function testPeekAndRead(
     bin: Uint8Array,
     littleEndian: boolean,
     nums: Array<number>,
-    peekName: keyof Record<keyof SimpleBufferReader, (() => number)>,
-    readName: keyof Record<keyof SimpleBufferReader, (() => number)>
+    peekName: keyof Record<keyof SimpleBufferReader, ((pos?: number) => number)>,
+    readName: keyof Record<keyof SimpleBufferReader, ((pos?: number) => number)>
   ) {
     const r = new SimpleBufferReader(bin.buffer, littleEndian)
 
@@ -107,6 +116,8 @@ describe("SimpleBufferReader", () => {
     }
     expect(() => (r[peekName] as () => number)()).toThrow(new RegExp(peekName))
     expect(() => (r[readName] as () => number)()).toThrow(new RegExp(readName))
+
+    expect((r[peekName] as (pos?: number) => number)(0)).toBe(nums[0])
   }
 
   const table: Array<[string, Parameters<typeof testPeekAndRead>]> = [
