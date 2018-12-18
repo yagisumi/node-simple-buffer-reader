@@ -91,7 +91,7 @@ export class SimpleBufferReader {
     }
 
     this.pos = pos
-    return pos
+    return this
   }
 
   /**
