@@ -30,6 +30,7 @@ import { SimpleBufferReader } from '@yagisumi/simple-buffer-reader';
 ```
 
 - web browser
+
 ```html
 <script src='https://unpkg.com/@yagisumi/simple-buffer-reader'></script>
 ```
@@ -47,6 +48,7 @@ try {
   console.log(reader.peekUint8()); //=> 4
   console.log(reader.peekUint8(1)); //=> 1 peek with position
   console.log(reader.skip(2).readInt16BE().toString(16)); //=> "607"
+  reader.seek(6) // position 8 -> 6
   reader.readInt32LE() //=> throw RangeError
 } catch(err) {
   throw err;

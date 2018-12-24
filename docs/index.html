@@ -81,9 +81,9 @@
 
 <span class="hljs-comment">// ....</span></code></pre>
 				<ul>
-					<li>web browser<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'https://unpkg.com/@yagisumi/simple-buffer-reader'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-					</li>
+					<li>web browser</li>
 				</ul>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'https://unpkg.com/@yagisumi/simple-buffer-reader'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 				<h2 id="example">Example</h2>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> SimpleBufferReader = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@yagisumi/simple-buffer-reader'</span>).SimpleBufferReader;
 
@@ -96,6 +96,7 @@
   <span class="hljs-built_in">console</span>.log(reader.peekUint8()); <span class="hljs-comment">//=&gt; 4</span>
   <span class="hljs-built_in">console</span>.log(reader.peekUint8(<span class="hljs-number">1</span>)); <span class="hljs-comment">//=&gt; 1 peek with position</span>
   <span class="hljs-built_in">console</span>.log(reader.skip(<span class="hljs-number">2</span>).readInt16BE().toString(<span class="hljs-number">16</span>)); <span class="hljs-comment">//=&gt; "607"</span>
+  reader.seek(<span class="hljs-number">6</span>) <span class="hljs-comment">// position 8 -&gt; 6</span>
   reader.readInt32LE() <span class="hljs-comment">//=&gt; throw RangeError</span>
 } <span class="hljs-keyword">catch</span>(err) {
   <span class="hljs-keyword">throw</span> err;
