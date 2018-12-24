@@ -3,7 +3,6 @@
   "version": "0.1.1",
   "description": "simple buffer reader",
   "keywords": [],
-  "private": true,
   "main": "lib/simple-buffer-reader.js",
   "types": "lib/simple-buffer-reader.d.ts",
   "unpkg": "umd/simple-buffer-reader.js",
