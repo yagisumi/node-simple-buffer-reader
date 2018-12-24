@@ -4,6 +4,7 @@ tslint.json
 typedoc.js
 yarn.lock
 package-lock.json
+webpack.config.js
 *.tgz
 test/
 docs/
