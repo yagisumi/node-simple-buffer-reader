@@ -73,24 +73,34 @@
 				</ul>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> SimpleBufferReader = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@yagisumi/simple-buffer-reader'</span>).SimpleBufferReader;
 
-<span class="hljs-keyword">const</span> binary = <span class="hljs-built_in">Uint8Array</span>.of(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>);
-<span class="hljs-keyword">const</span> reader = <span class="hljs-keyword">new</span> SimpleBufferReader(binary.buffer, <span class="hljs-literal">true</span>);
-<span class="hljs-keyword">try</span> {
-  <span class="hljs-built_in">console</span>.log(reader.littleEndian); <span class="hljs-comment">// true</span>
-  reader.setLimit(<span class="hljs-number">4</span>)
-  <span class="hljs-built_in">console</span>.log(reader.readInt32().toString(<span class="hljs-number">16</span>)); <span class="hljs-comment">// "3020100"</span>
-  <span class="hljs-comment">// read over limit</span>
-  <span class="hljs-built_in">console</span>.log(reader.readInt32().toString(<span class="hljs-number">16</span>)); <span class="hljs-comment">// throw RangeError</span>
-} <span class="hljs-keyword">catch</span>(err) {
-  <span class="hljs-keyword">throw</span> err;
-}</code></pre>
+<span class="hljs-comment">// ...</span></code></pre>
 				<ul>
 					<li>typescript</li>
 				</ul>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { SimpleBufferReader } <span class="hljs-keyword">from</span> <span class="hljs-string">'@yagisumi/simple-buffer-reader'</span>;
 
 <span class="hljs-comment">// ....</span></code></pre>
-				<h2 id="reference">Reference</h2>
+				<ul>
+					<li>web browser<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'https://unpkg.com/@yagisumi/simple-buffer-reader'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+					</li>
+				</ul>
+				<h2 id="example">Example</h2>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> SimpleBufferReader = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@yagisumi/simple-buffer-reader'</span>).SimpleBufferReader;
+
+<span class="hljs-keyword">const</span> binary = <span class="hljs-built_in">Uint8Array</span>.of(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>);
+<span class="hljs-keyword">const</span> reader = <span class="hljs-keyword">new</span> SimpleBufferReader(binary.buffer);
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-built_in">console</span>.log(reader.peekUint8()); <span class="hljs-comment">//=&gt; 0</span>
+  <span class="hljs-built_in">console</span>.log(reader.readInt32LE().toString(<span class="hljs-number">16</span>)); <span class="hljs-comment">//=&gt; "3020100"</span>
+  <span class="hljs-comment">// position moved</span>
+  <span class="hljs-built_in">console</span>.log(reader.peekUint8()); <span class="hljs-comment">//=&gt; 4</span>
+  <span class="hljs-built_in">console</span>.log(reader.peekUint8(<span class="hljs-number">1</span>)); <span class="hljs-comment">//=&gt; 1 peek with position</span>
+  <span class="hljs-built_in">console</span>.log(reader.skip(<span class="hljs-number">2</span>).readInt16BE().toString(<span class="hljs-number">16</span>)); <span class="hljs-comment">//=&gt; "607"</span>
+  reader.readInt32LE() <span class="hljs-comment">//=&gt; throw RangeError</span>
+} <span class="hljs-keyword">catch</span>(err) {
+  <span class="hljs-keyword">throw</span> err;
+}</code></pre>
+				<h2 id="documentation">Documentation</h2>
 				<p><a href="https://yagisumi.github.io/node-simple-buffer-reader/">https://yagisumi.github.io/node-simple-buffer-reader/</a></p>
 				<h2 id="license">License</h2>
 				<p><a href="https://opensource.org/licenses/MIT">MIT License</a></p>
