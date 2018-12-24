@@ -1,5 +1,6 @@
 node_modules/
 coverage/
+umd/
 *.tgz
 yarn.lock
 package-lock.json
