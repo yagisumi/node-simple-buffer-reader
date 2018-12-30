@@ -1,8 +1,10 @@
 {
   "name": "@yagisumi/simple-buffer-reader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "simple buffer reader",
-  "keywords": ["ArrayBuffer"],
+  "keywords": [
+    "ArrayBuffer"
+  ],
   "main": "lib/simple-buffer-reader",
   "module": "lib/simple-buffer-reader.mjs",
   "types": "lib/simple-buffer-reader.d.ts",
