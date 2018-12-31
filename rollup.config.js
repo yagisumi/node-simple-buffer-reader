@@ -1,24 +1,24 @@
 import typescript from "rollup-plugin-typescript2"
-import sourcemaps from "rollup-plugin-sourcemaps"
 
 export default {
-  input: "./lib/simple-buffer-reader.ts",
+  input: "./src/simple-buffer-reader.ts",
   output: {
-    file: "./lib/simple-buffer-reader.mjs",
-    format: "es",
+    file: "./lib/simple-buffer-reader.js",
+    format: "cjs",
     sourcemap: true,
+    sourcemapExcludeSources: true,
   },
 
   plugins: [
     typescript({
-      tsconfig: "./lib/tsconfig.json",
+      tsconfig: "./src/tsconfig.json",
       tsconfigOverride: {
         compilerOptions: {
           module: "es2015",
+          sourceMap: true,
           declaration: false,
         },
       },
     }),
-    sourcemaps(),
   ],
 }

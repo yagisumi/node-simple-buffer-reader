@@ -5,7 +5,7 @@ typedoc.js
 yarn.lock
 yarn-error.log
 package-lock.json
-rollup.config.mjs.js
+rollup.config.js
 rollup.config.umd.js
 *.tgz
 test/

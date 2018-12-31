@@ -6,10 +6,10 @@ yarn-error.log
 package-lock.json
 coverage/
 umd/
-lib/*.js
-lib/*.mjs
-lib/*.map
-lib/*.d.ts
+lib/
+src/*.js
+src/*.map
+src/*.d.ts
 test/*.js
 test/*.map
 test/*.d.ts

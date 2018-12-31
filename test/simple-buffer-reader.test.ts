@@ -1,4 +1,4 @@
-import { SimpleBufferReader } from "../lib/simple-buffer-reader"
+import { SimpleBufferReader } from "../src/simple-buffer-reader"
 
 describe("SimpleBufferReader", () => {
   const bin8 = Uint8Array.of(0, 1, 2, 3, 4, 5, 6, 7)

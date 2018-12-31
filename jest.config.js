@@ -17,7 +17,7 @@ module.exports = {
   ],
   collectCoverage: true,
   collectCoverageFrom: [
-    'lib/**/*.{ts,tsx}',
+    'src/**/*.{ts,tsx}',
   ],
   coveragePathIgnorePatterns: [
     '/node_modules/',

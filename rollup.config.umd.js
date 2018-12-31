@@ -1,30 +1,32 @@
 import resolve from "rollup-plugin-node-resolve"
 import commonjs from "rollup-plugin-commonjs"
 import typescript from "rollup-plugin-typescript2"
-import sourcemaps from "rollup-plugin-sourcemaps"
+import { terser } from 'rollup-plugin-terser'
 
 export default {
-  input: "./lib/simple-buffer-reader.ts",
+  input: "./src/simple-buffer-reader.ts",
   output: {
     file: "./umd/simple-buffer-reader.js",
     format: "umd",
     name: "window",
     extend: true,
     sourcemap: true,
+    sourcemapExcludeSources: true,
   },
 
   plugins: [
     resolve(),
     commonjs(),
     typescript({
-      tsconfig: "./lib/tsconfig.json",
+      tsconfig: "./src/tsconfig.json",
       tsconfigOverride: {
         compilerOptions: {
           module: "es2015",
+          sourceMap: true,
           declaration: false,
         },
       },
     }),
-    sourcemaps(),
+    terser(),
   ],
 }
