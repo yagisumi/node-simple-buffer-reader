@@ -255,6 +255,390 @@
 					]
 				},
 				{
+					"id": 108,
+					"name": "peekFloat32",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 109,
+							"name": "peekFloat32",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 110,
+									"name": "pos",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Read start position"
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 480,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 118,
+					"name": "peekFloat32BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 119,
+							"name": "peekFloat32BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 120,
+									"name": "pos",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Read start position"
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 520,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 113,
+					"name": "peekFloat32LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 114,
+							"name": "peekFloat32LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 115,
+									"name": "pos",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Read start position"
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 500,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 123,
+					"name": "peekFloat64",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 124,
+							"name": "peekFloat64",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 125,
+									"name": "pos",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Read start position"
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 540,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 133,
+					"name": "peekFloat64BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 134,
+							"name": "peekFloat64BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 135,
+									"name": "pos",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Read start position"
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 580,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 128,
+					"name": "peekFloat64LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 129,
+							"name": "peekFloat64LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 130,
+									"name": "pos",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Read start position"
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 560,
+							"character": 15
+						}
+					]
+				},
+				{
 					"id": 48,
 					"name": "peekInt16",
 					"kind": 2048,
@@ -1284,6 +1668,228 @@
 					]
 				},
 				{
+					"id": 106,
+					"name": "readFloat32",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 107,
+							"name": "readFloat32",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 469,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 116,
+					"name": "readFloat32BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 117,
+							"name": "readFloat32BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 509,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 111,
+					"name": "readFloat32LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 112,
+							"name": "readFloat32LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 489,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 121,
+					"name": "readFloat64",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 122,
+							"name": "readFloat64",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 529,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 131,
+					"name": "readFloat64BE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 132,
+							"name": "readFloat64BE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 569,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 126,
+					"name": "readFloat64LE",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 127,
+							"name": "readFloat64LE",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"tags": [
+									{
+										"tag": "throws",
+										"text": "RangeError\n"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "simple-buffer-reader.ts",
+							"line": 549,
+							"character": 15
+						}
+					]
+				},
+				{
 					"id": 46,
 					"name": "readInt16",
 					"kind": 2048,
@@ -2072,6 +2678,12 @@
 						12,
 						14,
 						32,
+						108,
+						118,
+						113,
+						123,
+						133,
+						128,
 						48,
 						58,
 						53,
@@ -2088,6 +2700,12 @@
 						98,
 						43,
 						29,
+						106,
+						116,
+						111,
+						121,
+						131,
+						126,
 						46,
 						56,
 						51,

@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -101,6 +99,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#getlimit" class="tsd-kind-icon">get<wbr>Limit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#getpos" class="tsd-kind-icon">get<wbr>Pos</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekbuffer" class="tsd-kind-icon">peek<wbr>Buffer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekfloat32" class="tsd-kind-icon">peek<wbr>Float32</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekfloat32be" class="tsd-kind-icon">peek<wbr>Float32BE</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekfloat32le" class="tsd-kind-icon">peek<wbr>Float32LE</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekfloat64" class="tsd-kind-icon">peek<wbr>Float64</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekfloat64be" class="tsd-kind-icon">peek<wbr>Float64BE</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekfloat64le" class="tsd-kind-icon">peek<wbr>Float64LE</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekint16" class="tsd-kind-icon">peek<wbr>Int16</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekint16be" class="tsd-kind-icon">peek<wbr>Int16BE</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekint16le" class="tsd-kind-icon">peek<wbr>Int16LE</a></li>
@@ -117,6 +121,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekuint32le" class="tsd-kind-icon">peek<wbr>Uint32LE</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#peekuint8" class="tsd-kind-icon">peek<wbr>Uint8</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readbuffer" class="tsd-kind-icon">read<wbr>Buffer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readfloat32" class="tsd-kind-icon">read<wbr>Float32</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readfloat32be" class="tsd-kind-icon">read<wbr>Float32BE</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readfloat32le" class="tsd-kind-icon">read<wbr>Float32LE</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readfloat64" class="tsd-kind-icon">read<wbr>Float64</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readfloat64be" class="tsd-kind-icon">read<wbr>Float64BE</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readfloat64le" class="tsd-kind-icon">read<wbr>Float64LE</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readint16" class="tsd-kind-icon">read<wbr>Int16</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readint16be" class="tsd-kind-icon">read<wbr>Int16BE</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="simplebufferreader.html#readint16le" class="tsd-kind-icon">read<wbr>Int16LE</a></li>
@@ -288,6 +298,204 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ArrayBuffer</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="peekfloat32" class="tsd-anchor"></a>
+					<h3>peek<wbr>Float32</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">peek<wbr>Float32<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:480</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Read start position</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="peekfloat32be" class="tsd-anchor"></a>
+					<h3>peek<wbr>Float32BE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">peek<wbr>Float32BE<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:520</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Read start position</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="peekfloat32le" class="tsd-anchor"></a>
+					<h3>peek<wbr>Float32LE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">peek<wbr>Float32LE<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:500</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Read start position</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="peekfloat64" class="tsd-anchor"></a>
+					<h3>peek<wbr>Float64</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">peek<wbr>Float64<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:540</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Read start position</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="peekfloat64be" class="tsd-anchor"></a>
+					<h3>peek<wbr>Float64BE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">peek<wbr>Float64BE<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:580</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Read start position</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="peekfloat64le" class="tsd-anchor"></a>
+					<h3>peek<wbr>Float64LE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">peek<wbr>Float64LE<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:560</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Read start position</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -832,6 +1040,150 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="readfloat32" class="tsd-anchor"></a>
+					<h3>read<wbr>Float32</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Float32<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:469</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="readfloat32be" class="tsd-anchor"></a>
+					<h3>read<wbr>Float32BE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Float32BE<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:509</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="readfloat32le" class="tsd-anchor"></a>
+					<h3>read<wbr>Float32LE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Float32LE<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:489</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="readfloat64" class="tsd-anchor"></a>
+					<h3>read<wbr>Float64</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Float64<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:529</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="readfloat64be" class="tsd-anchor"></a>
+					<h3>read<wbr>Float64BE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Float64BE<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:569</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="readfloat64le" class="tsd-anchor"></a>
+					<h3>read<wbr>Float64LE</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Float64LE<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in simple-buffer-reader.ts:549</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="readint16" class="tsd-anchor"></a>
 					<h3>read<wbr>Int16</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1366,6 +1718,24 @@
 								<a href="simplebufferreader.html#peekbuffer" class="tsd-kind-icon">peek<wbr>Buffer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#peekfloat32" class="tsd-kind-icon">peek<wbr>Float32</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#peekfloat32be" class="tsd-kind-icon">peek<wbr>Float32BE</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#peekfloat32le" class="tsd-kind-icon">peek<wbr>Float32LE</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#peekfloat64" class="tsd-kind-icon">peek<wbr>Float64</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#peekfloat64be" class="tsd-kind-icon">peek<wbr>Float64BE</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#peekfloat64le" class="tsd-kind-icon">peek<wbr>Float64LE</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="simplebufferreader.html#peekint16" class="tsd-kind-icon">peek<wbr>Int16</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -1412,6 +1782,24 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="simplebufferreader.html#readbuffer" class="tsd-kind-icon">read<wbr>Buffer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#readfloat32" class="tsd-kind-icon">read<wbr>Float32</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#readfloat32be" class="tsd-kind-icon">read<wbr>Float32BE</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#readfloat32le" class="tsd-kind-icon">read<wbr>Float32LE</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#readfloat64" class="tsd-kind-icon">read<wbr>Float64</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#readfloat64be" class="tsd-kind-icon">read<wbr>Float64BE</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="simplebufferreader.html#readfloat64le" class="tsd-kind-icon">read<wbr>Float64LE</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="simplebufferreader.html#readint16" class="tsd-kind-icon">read<wbr>Int16</a>
