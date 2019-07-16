@@ -462,4 +462,124 @@ export class SimpleBufferReader {
     this.checkPos(r_pos, 4, "peekUint32BE")
     return this.view.getUint32(r_pos, false)
   }
+
+  /**
+   * @throws RangeError
+   */
+  readFloat32() {
+    this.checkPos(this.pos, 4, "readFloat32")
+    const r = this.view.getFloat32(this.pos, this.littleEndian)
+    this.pos += 4
+    return r
+  }
+
+  /**
+   * @param pos Read start position
+   * @throws RangeError
+   */
+  peekFloat32(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekFloat32")
+    return this.view.getFloat32(r_pos, this.littleEndian)
+  }
+
+  /**
+   * @throws RangeError
+   */
+  readFloat32LE() {
+    this.checkPos(this.pos, 4, "readFloat32LE")
+    const r = this.view.getFloat32(this.pos, true)
+    this.pos += 4
+    return r
+  }
+
+  /**
+   * @param pos Read start position
+   * @throws RangeError
+   */
+  peekFloat32LE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekFloat32LE")
+    return this.view.getFloat32(r_pos, true)
+  }
+
+  /**
+   * @throws RangeError
+   */
+  readFloat32BE() {
+    this.checkPos(this.pos, 4, "readFloat32BE")
+    const r = this.view.getFloat32(this.pos, false)
+    this.pos += 4
+    return r
+  }
+
+  /**
+   * @param pos Read start position
+   * @throws RangeError
+   */
+  peekFloat32BE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 4, "peekFloat32BE")
+    return this.view.getFloat32(r_pos, false)
+  }
+
+  /**
+   * @throws RangeError
+   */
+  readFloat64() {
+    this.checkPos(this.pos, 8, "readFloat64")
+    const r = this.view.getFloat64(this.pos, this.littleEndian)
+    this.pos += 8
+    return r
+  }
+
+  /**
+   * @param pos Read start position
+   * @throws RangeError
+   */
+  peekFloat64(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 8, "peekFloat64")
+    return this.view.getFloat64(r_pos, this.littleEndian)
+  }
+
+  /**
+   * @throws RangeError
+   */
+  readFloat64LE() {
+    this.checkPos(this.pos, 8, "readFloat64LE")
+    const r = this.view.getFloat64(this.pos, true)
+    this.pos += 8
+    return r
+  }
+
+  /**
+   * @param pos Read start position
+   * @throws RangeError
+   */
+  peekFloat64LE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 8, "peekFloat64LE")
+    return this.view.getFloat64(r_pos, true)
+  }
+
+  /**
+   * @throws RangeError
+   */
+  readFloat64BE() {
+    this.checkPos(this.pos, 8, "readFloat64BE")
+    const r = this.view.getFloat64(this.pos, false)
+    this.pos += 8
+    return r
+  }
+
+  /**
+   * @param pos Read start position
+   * @throws RangeError
+   */
+  peekFloat64BE(pos?: number) {
+    const r_pos = pos == null ? this.pos : pos
+    this.checkPos(r_pos, 8, "peekFloat64BE")
+    return this.view.getFloat64(r_pos, false)
+  }
 }
